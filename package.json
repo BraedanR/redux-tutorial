@@ -15,7 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -24,6 +25,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-2": "^6.11.0",
     "webpack": "^1.13.1",
+    "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^1.14.1"
   }
 }
