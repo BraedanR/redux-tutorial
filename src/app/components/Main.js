@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import {connect} from "react-redux"; // need to npm install
 
 class Main extends React.Component {
     render() {
@@ -14,7 +14,7 @@ class Main extends React.Component {
                     <div className="col-xs-12">
                         <button
                             className="btn btn-primary"
-                            onClick={() => this.props.setName('George')}>Change the Username</button>
+                            onClick={() => this.props.setUsername('Hank')}>Change the Username</button>
                     </div>
                 </div>
             </div>
@@ -35,6 +35,12 @@ const mapDispatchToProps = (dispatch) => {
         type: "SET_NAME",
         payload: name
       });
+    },
+    setUsername: (name) => {
+        dispatch({
+          type: "SET_NAME",
+          payload: name
+        });
     }
   };
 };
