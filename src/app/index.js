@@ -29,7 +29,8 @@
 // }
 //
 // render(<App />, window.document.getElementById('app'));
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createLogger } from "redux-logger";
 
 const initialState = {
   result: 1,
@@ -81,11 +82,18 @@ const userReducer = (state = {
   return state;
 };
 
+const myLogger = (store) => (next) => (action) => {
+  console.log("Logged Action: ", action);
+  next(action);
+};
+
 // If reducers key name match, this notation works! Otherwise: ({reducer: our_reducer})
-const store = createStore(combineReducers({mathReducer, userReducer}));
+const store = createStore(combineReducers({mathReducer, userReducer}), {},
+  applyMiddleware(createLogger())
+);
 
 store.subscribe(() => {
-  console.log("Store updated!", store.getState());
+  // console.log("Store updated!", store.getState());
 });
 
 store.dispatch({
